@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 import joblib
 from flask_cors import CORS
 
+import nltk
+nltk.download('stopwords')
 
 # print(model.predictFromComment('Almost good, but the wheel is so bad, it stopped just 2 months after buying.'))
 # Khởi tạo ứng dụng Flask
