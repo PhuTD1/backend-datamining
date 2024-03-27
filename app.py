@@ -6,13 +6,14 @@ from flask_cors import CORS
 # print(model.predictFromComment('Almost good, but the wheel is so bad, it stopped just 2 months after buying.'))
 # Khởi tạo ứng dụng Flask
 app = Flask(__name__)
+CORS(app)  # Tạo đối tượng CORS cho ứng dụng Flask
 
-@app.route('/',methods = ['POST', 'GET'])
+@app.route('/hello',methods = ['POST', 'GET'])
 def main():
     return 'hello chào bạn'
 
 # Định nghĩa route cho form
-@app.route('/server', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def process():
     model = joblib.load('model/model.pkl')
     data = request.get_json()
