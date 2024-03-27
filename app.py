@@ -8,6 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Tạo đối tượng CORS cho ứng dụng Flask
 
+model = joblib.load('model/model.pkl')
+
 @app.route('/',methods = ['POST', 'GET'])
 def main():
     return 'hello chào bạn'
@@ -15,7 +17,6 @@ def main():
 # Định nghĩa route cho form
 @app.route('/server', methods=['POST', 'GET'])
 def process():
-    model = joblib.load('model/model.pkl')
     data = request.get_json()
     
     if data:
